@@ -1,10 +1,43 @@
-<form>
-    <label for="autor">Titulo</label>
-    <input type="text">
-    <input type="button" value="Guardar" (click)="guardarCancion">    
-</form>
+<div class="container">
+    <form class="row gy-2 gx-3 align-items-center">
+        <div class="row">
+            <div class="col-auto">
+                <label for="titulo">Titulo</label>
+                <input type="text" name="titulo" class="form-control" placeholder="Titulo" [(ngModel)]="titulo">
+            </div>
+            <div class="col-auto">
+                <label for="artista">Artista</label>
+                <input type="text" name="artista" class="form-control" placeholder="Artista" [(ngModel)]="artista">
+            </div>
+            <div class="col-auto">
+                <label for="formato">Formato</label>
+                <select name="formato" id="formato" class="form-select" [(ngModel)]="formato">
+                    <option disabled selected >Formato...</option>
+                    <option value="mp3">mp3</option>
+                    <option value="wav">wav</option>
+                    <option value="ogg">ogg</option>
+                </select>  
+            </div>
+        </div>
+        <div class="col-auto align-items-end">
+            <button type="submit" class="btn btn-primary" (click)="guardarCancion(this.titulo, this.artista, this.formato)">Guardar</button>
+        </div>   
+    </form>
 
-<div class="canciones">
-    titulo: {{canciones[0]}}
-
+    <div class="container" style="margin-top: 50px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Formato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cancion of canciones, let i=index">
+                    <th scope="row">{{i+1}}</th><td>{{cancion.titulo}}</td><td>{{cancion.artista}}</td><td>{{cancion.formato}}</td>
+            </tbody>
+        </table>
+    </div>
 </div>

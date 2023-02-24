@@ -1,0 +1,11 @@
+.cabecera{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.cabecera h1 {
+    margin-left: 25px;
+    
+}

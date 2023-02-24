@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CancionComponent } from '../cancion/cancion.component';
+import { Cancion } from './cancion.model';
+
 
 @Component({
   selector: 'app-canciones',
@@ -12,11 +13,26 @@ export class CancionesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  titulo:string = "";
+  artista:string = "";
+  formato:string = ""
+  
+  mensaje:string = "";
+ 
+  canciones:Array<Cancion>=[
+    new Cancion("All you need is love", "The Beatles", "mp3"),
+    new Cancion("All allong the Watchtower", "Jimmy Hendrix", "wav"),
+    new Cancion("Renacimiento", "Kase.O", "mp3")
+  ];
 
-  canciones:Array<CancionComponent> = [];
-
-  guardarCancion(cancion:CancionComponent){
-    this.canciones.push(cancion);
+  guardarCancion(titulo:string, artista:string, formato:string){
+    if(titulo != ""){
+      let miCancion = new Cancion(titulo, artista, formato)
+      this.canciones.push(miCancion)
+    }
+    else {
+      this.mensaje = "Es obligatorio poner titulo de la cancion"
+    }
   }
 
 
