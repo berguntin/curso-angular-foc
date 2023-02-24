@@ -5,12 +5,14 @@ import { CancionesComponent } from './canciones/canciones.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CancionesComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
